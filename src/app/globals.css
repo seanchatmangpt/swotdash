@@ -8,7 +8,7 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
@@ -18,10 +18,38 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  /*background: linear-gradient(*/
+  /*    to bottom,*/
+  /*    transparent,*/
+  /*    rgb(var(--background-end-rgb))*/
+  /*  )*/
+  /*  rgb(var(--background-start-rgb));*/
+}
+
+/* Add this CSS to your global stylesheet */
+
+.corkboard {
+  background-image: repeating-linear-gradient(0deg, #bfa180, #bfa180 10px, #a87953 10px, #a87953 20px),
+                  repeating-linear-gradient(90deg, #bfa180, #bfa180 10px, #a87953 10px, #a87953 20px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Adjust the number to fit your design */
+  gap: 16px;
+  padding: 16px;
+}
+.sticky-note {
+  color: #000;
+  width: 200px;
+  height: 200px;
+  background: #fffb00;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+  cursor: grab;
+}
+
+.sticky-note:active {
+  cursor: grabbing;
+}
+
+.sticky-note:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 8px 24px rgba(0, 0, 0, 0.2);
 }
